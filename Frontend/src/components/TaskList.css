@@ -1,0 +1,263 @@
+/* frontend/src/components/TaskList.css */
+.task-list {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.task-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-header-section h3 {
+  color: #333;
+  font-size: 22px;
+  margin: 0;
+}
+
+.task-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.task-tabs button {
+  background: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.task-tabs button.active {
+  background: #667eea;
+  color: white;
+}
+
+.tasks-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.task-item:hover {
+  background: #f0f0f0;
+}
+
+.task-item.pending {
+  border-left-color: #ff9800;
+}
+
+.task-item.in-progress {
+  border-left-color: #2196f3;
+}
+
+.task-item.completed {
+  opacity: 0.6;
+  border-left-color: #4caf50;
+}
+
+.task-item.completed .task-header h4 {
+  text-decoration: line-through;
+}
+
+.task-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.task-header h4 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.priority-badge {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.priority-badge.high {
+  background: #f44336;
+}
+
+.priority-badge.medium {
+  background: #ff9800;
+}
+
+.priority-badge.low {
+  background: #4caf50;
+}
+
+.task-description {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.add-task-btn {
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+.add-task-btn:hover {
+  background: #5568d3;
+}
+
+.add-task-form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 2px solid #e0e0e0;
+}
+
+.add-task-form input,
+.add-task-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.add-task-form input:focus,
+.add-task-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.add-task-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-btn, .cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #45a049;
+}
+
+.cancel-btn {
+  background: #e0e0e0;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background: #d0d0d0;
+}
+
+.no-tasks {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-tasks .icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.no-tasks p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.task-stats {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 24px;
+  color: #333;
+}
+
+.stat-item span {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}

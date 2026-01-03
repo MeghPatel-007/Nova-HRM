@@ -1,0 +1,96 @@
+/* frontend/src/components/AttendanceCard.css */
+.attendance-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header h3 {
+  color: #333;
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.status-icon {
+  font-size: 24px;
+}
+
+.status-text {
+  font-size: 16px;
+}
+
+.time-info {
+  margin-top: 20px;
+}
+
+.time-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.time-item:last-child {
+  border-bottom: none;
+}
+
+.time-item .label {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.time-item .value {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.late-warning {
+  background: #fff3e0;
+  color: #ff6f00;
+  padding: 12px;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.not-marked {
+  text-align: center;
+  padding: 30px;
+}
+
+.not-marked .icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.not-marked p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}

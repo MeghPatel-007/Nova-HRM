@@ -1,0 +1,297 @@
+/* frontend/src/pages/HrDashboard.css */
+.hr-dashboard {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.hr-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.hr-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.hr-tabs {
+  display: flex;
+  gap: 0;
+  background: white;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 0 30px;
+}
+
+.hr-tabs button {
+  background: none;
+  border: none;
+  padding: 20px 30px;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.hr-tabs button:hover {
+  color: #667eea;
+}
+
+.hr-tabs button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.hr-content {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.best-employee-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.best-employee-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.best-employee-card h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.best-employee-card p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.score-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.employee-analytics {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.employee-analytics h3 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.chart-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.chart-card h4 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat span {
+  color: #666;
+  font-size: 13px;
+}
+
+.stat strong {
+  color: #333;
+  font-size: 24px;
+}
+
+.warnings {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.warnings h5 {
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+
+.warning-item {
+  background: #fff3e0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.warning-item span {
+  color: #333;
+  font-size: 14px;
+}
+
+.warning-item small {
+  color: #666;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+
+.leave-requests {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leave-requests h3 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.requests-list {
+  display: grid;
+  gap: 20px;
+}
+
+.leave-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leave-info h4 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.leave-info p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.leave-details {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.leave-type {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.leave-reason {
+  font-style: italic;
+  color: #666;
+  font-size: 14px;
+}
+
+.leave-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-btn, .reject-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.approve-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #45a049;
+}
+
+.reject-btn {
+  background: #f44336;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #d32f2f;
+}
+
+.employees-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.employee-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.employee-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.employee-card h3 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.employee-card p {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+}

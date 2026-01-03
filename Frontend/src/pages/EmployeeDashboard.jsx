@@ -1,6 +1,7 @@
 // frontend/src/pages/EmployeeDashboard.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './EmployeeDashboard.css';
 import AttendanceCard from '../components/AttendanceCard';
 import TaskList from '../components/TaskList';
 import ScoreCard from '../components/ScoreCard';

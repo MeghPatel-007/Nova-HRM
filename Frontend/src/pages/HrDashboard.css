@@ -89,19 +89,6 @@
   background: rgba(102, 126, 234, 0.05);
 }
 
-.dashboard-tabs button:hover::before {
-  transform: translateX(-50%) scaleX(1);
-}
-
-.dashboard-tabs button.active {
-  color: var(--primary);
-  background: rgba(102, 126, 234, 0.08);
-}
-
-.dashboard-tabs button.active::before {
-  transform: translateX(-50%) scaleX(1);
-}
-
 .hr-content {
   padding: var(--spacing-xl);
   max-width: 1400px;

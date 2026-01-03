@@ -1,5 +1,5 @@
 # Nova-HRM
-```
+
 dayflow-hrms/
 │
 ├── frontend/
@@ -25,4 +25,3 @@ dayflow-hrms/
 │   ├── server.js
 │
 └── README.md
-```

@@ -1,0 +1,334 @@
+.leave-management-container {
+  width: 100%;
+}
+
+.leave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.leave-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-buttons button {
+  padding: 10px 16px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  border-color: #5a7cfa;
+  color: #5a7cfa;
+}
+
+.filter-buttons button.active {
+  background: #5a7cfa;
+  color: white;
+  border-color: #5a7cfa;
+}
+
+.message {
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.message.success {
+  background: #d3f9d8;
+  color: #2f9e44;
+  border-left: 4px solid #2f9e44;
+}
+
+.message.error {
+  background: #ffe3e3;
+  color: #c92a2a;
+  border-left: 4px solid #c92a2a;
+}
+
+.no-requests {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
+}
+
+.leaves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.leave-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-left: 5px solid #5a7cfa;
+}
+
+.leave-card.pending {
+  border-left-color: #ffa94d;
+}
+
+.leave-card.approved {
+  border-left-color: #51cf66;
+}
+
+.leave-card.rejected {
+  border-left-color: #ff6b6b;
+}
+
+.leave-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leave-card-header {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.employee-info h4 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.employee-info .department {
+  margin: 0;
+  color: #999;
+  font-size: 13px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-badge.pending {
+  background: #fff3bf;
+  color: #f59f00;
+}
+
+.status-badge.approved {
+  background: #d3f9d8;
+  color: #2f9e44;
+}
+
+.status-badge.rejected {
+  background: #ffe3e3;
+  color: #c92a2a;
+}
+
+.leave-card-body {
+  padding: 16px;
+}
+
+.leave-type-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.leave-type-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.leave-type-badge.paid {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.leave-type-badge.sick {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.leave-type-badge.unpaid {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.days-count {
+  font-weight: 600;
+  color: #5a7cfa;
+  font-size: 14px;
+}
+
+.date-range {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+.date-range .date {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.date-range strong {
+  color: #333;
+}
+
+.reason-section {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.reason-section strong {
+  display: block;
+  color: #333;
+  font-size: 12px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.reason-section p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.leave-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #999;
+}
+
+.meta-item {
+  display: flex;
+  gap: 4px;
+}
+
+.meta-item strong {
+  color: #333;
+}
+
+.leave-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.approve-btn,
+.reject-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.approve-btn {
+  background: #51cf66;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #40c057;
+  transform: translateY(-1px);
+}
+
+.approve-btn:active {
+  transform: translateY(0);
+}
+
+.reject-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #fa5252;
+  transform: translateY(-1px);
+}
+
+.reject-btn:active {
+  transform: translateY(0);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .leave-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .leaves-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leave-card-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .date-range {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .leave-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -212,22 +212,22 @@ router.get("/me", verifyToken, async (req, res) => {
 });
 
 // Get all employees (HR only)
-router.get('/employees', verifyToken, verifyHR, async (req, res) => {
+router.get("/employees", verifyToken, verifyHR, async (req, res) => {
   const db = req.app.locals.db;
 
   try {
     const result = await db.query(`
       SELECT u.id, u.email, u.role, e.id as employee_id, e.name, e.department, e.designation, e.join_date 
       FROM users u 
-      LEFT JOIN employees e ON u.id = e.user_id 
+      INNER JOIN employees e ON u.id = e.user_id 
       WHERE u.role = 'Employee'
       ORDER BY e.name ASC
     `);
 
     res.json(result.rows);
   } catch (error) {
-    console.error('Get employees error:', error);
-    res.status(500).json({ error: 'Failed to get employees' });
+    console.error("Get employees error:", error);
+    res.status(500).json({ error: "Failed to get employees" });
   }
 });
 
@@ -266,7 +266,7 @@ router.delete(
         [employeeId]
       );
       await db.query(
-        "DELETE FROM leave_requests WHERE employee_id = $1 OR approved_by = $1",
+        "DELETE FROM leaves WHERE employee_id = $1 OR approved_by = $1",
         [employeeId]
       );
       await db.query("DELETE FROM scores WHERE employee_id = $1", [employeeId]);

@@ -55,6 +55,11 @@ router.post('/apply', verifyToken, async (req, res) => {
   const { leaveType, startDate, endDate, reason } = req.body;
 
   try {
+    // Validate dates
+    if (!startDate || !endDate) {
+      return res.status(400).json({ error: 'Start date and end date are required' });
+    }
+
     // Check leave balance
     const balance = await db.query(
       'SELECT * FROM leave_balance WHERE employee_id = $1',
@@ -70,13 +75,8 @@ router.post('/apply', verifyToken, async (req, res) => {
     const end = new Date(endDate);
     const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
 
-    // Check if enough leaves available
-    const currentBalance = balance.rows[0];
-    if (leaveType === 'Paid' && currentBalance.paid_leaves < days) {
-      return res.status(400).json({ error: 'Insufficient paid leaves' });
-    }
-    if (leaveType === 'Sick' && currentBalance.sick_leaves < days) {
-      return res.status(400).json({ error: 'Insufficient sick leaves' });
+    if (days <= 0) {
+      return res.status(400).json({ error: 'Invalid date range' });
     }
 
     // Check for overlapping leaves
@@ -96,10 +96,46 @@ router.post('/apply', verifyToken, async (req, res) => {
       return res.status(400).json({ error: 'Leave already applied for this period' });
     }
 
+    // Check if enough leaves available
+    const currentBalance = balance.rows[0];
+    
+    if (leaveType === 'Paid') {
+      // Check monthly limit for paid leaves (max 2 per month)
+      const monthStart = new Date(startDate);
+      monthStart.setDate(1);
+      const monthEnd = new Date(startDate);
+      monthEnd.setMonth(monthEnd.getMonth() + 1);
+      monthEnd.setDate(0);
+
+      const monthlyPaidLeaves = await db.query(
+        `SELECT COALESCE(SUM(
+          CAST(end_date - start_date AS INTEGER) + 1
+        ), 0) as days_taken
+         FROM leaves
+         WHERE employee_id = $1 
+         AND leave_type = 'Paid'
+         AND status = 'Approved'
+         AND start_date >= $2
+         AND start_date <= $3`,
+        [employeeId, monthStart.toISOString().split('T')[0], monthEnd.toISOString().split('T')[0]]
+      );
+
+      const daysTakenThisMonth = parseInt(monthlyPaidLeaves.rows[0].days_taken) || 0;
+      
+      if (daysTakenThisMonth + days > 2) {
+        const daysRemaining = Math.max(0, 2 - daysTakenThisMonth);
+        return res.status(400).json({ 
+          error: `Maximum 2 paid leaves allowed per month. You have used ${daysTakenThisMonth} days this month. Only ${daysRemaining} day(s) remaining for paid leave.` 
+        });
+      }
+    } else if (leaveType === 'Sick' && currentBalance.sick_leaves < days) {
+      return res.status(400).json({ error: 'Insufficient sick leaves' });
+    }
+
     // Insert leave application
     const result = await db.query(
-      'INSERT INTO leaves (employee_id, leave_type, start_date, end_date, reason) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [employeeId, leaveType, startDate, endDate, reason]
+      'INSERT INTO leaves (employee_id, leave_type, start_date, end_date, reason, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [employeeId, leaveType, startDate, endDate, reason || '', 'Pending']
     );
 
     res.status(201).json(result.rows[0]);

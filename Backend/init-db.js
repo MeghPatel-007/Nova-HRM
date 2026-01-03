@@ -77,10 +77,25 @@ async function initializeDatabase() {
       CREATE TABLE IF NOT EXISTS tasks (
         id SERIAL PRIMARY KEY,
         employee_id INTEGER REFERENCES employees(id),
+        assigned_by INTEGER REFERENCES employees(id),
+        title VARCHAR(255),
+        description TEXT,
+        priority VARCHAR(50) DEFAULT 'Medium',
+        status VARCHAR(50) DEFAULT 'Pending',
+        due_date DATE,
+        completed_at TIMESTAMP,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS personal_tasks (
+        id SERIAL PRIMARY KEY,
+        employee_id INTEGER REFERENCES employees(id),
         title VARCHAR(255),
         description TEXT,
         status VARCHAR(50) DEFAULT 'Pending',
-        due_date DATE,
+        completed_at TIMESTAMP,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
